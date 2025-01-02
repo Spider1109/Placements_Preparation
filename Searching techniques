@@ -1,0 +1,24 @@
+Problems solved: 
+Easy: 
+1. Guess the number higher or lower: https://leetcode.com/problems/guess-number-higher-or-lower/description/ 
+Approach: 
+provided that use api guess(int num) which return three possible results: 
+-1: Your guess is higher than the number I picked (i.e. num > pick).
+1: Your guess is lower than the number I picked (i.e. num < pick).
+0: your guess is equal to the number I picked (i.e. num == pick).
+
+Step1: Initialize two pointer:
+low = 1 (start of the range)
+high = n (end of the range)
+
+Step-2: Perform binary Search: 
+calculate: mid = low + (high-low)/2
+use the guess API to compare mid with the target number.
+If guess(mid) == 0 : return mid as it's correct number.
+If guess(mid)== -1: the number is smaller, so update high = mid-1.
+If guess(mid) ==1 : the number is larger, so update low = mid+1.
+
+Step 3: Reapeat until the number is found.
+Step 4: If no number is found(though constraints gurantee a solution), return -1.
+
+
